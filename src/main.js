@@ -14,6 +14,7 @@ import './common/js/rem'
 // 第三方插件
 
 
+// Vue.prototype.$http = $http
 Vue.config.productionTip = false
 
 
