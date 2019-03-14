@@ -1,6 +1,6 @@
 # cat
 
-> A Vue.js project
+> A Vue.js project by lzx
 
 ## Build Setup
 
