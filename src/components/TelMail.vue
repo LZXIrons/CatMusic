@@ -10,7 +10,8 @@
 </template>
 
 <script>
-  import http from "@/api/http.js"
+  import $http from "@/api/http.js";
+  import $cookie from "@/api/cookie.js";
   export default {
     data() {
       return {
@@ -20,7 +21,7 @@
       }
     },
     created(){
-      this.getCookie("MUSIC_U")
+      // this.getCookie("MUSIC_U")
     },
     methods: {
       Login() {
@@ -31,7 +32,7 @@
           alert("密码不能为空")
           return
         }
-        http.login(`phone=${this.username}&password=${this.password}`).then(res => {
+        $http.login(`phone=${this.username}&password=${this.password}`).then(res => {
 
         })
       }

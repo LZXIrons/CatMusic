@@ -8,7 +8,6 @@
       var clientWidth = docEl.clientWidth;
       if (!clientWidth) return;
       if(clientWidth>1024){clientWidth=640}
-      console.log(clientWidth)
       // docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
       docEl.style.fontSize = (clientWidth / 6.4) + 'px';
     };
