@@ -1,11 +1,11 @@
 <template>
   <div class="common-wrapper">
-    <div class="common-top-bar">{{bar_text=='isTel'?'手机登陆':'邮箱登陆'}}</div>
+    <div class="common-top-bar">{{bartext=='isTel'?'手机登陆':'邮箱登陆'}}</div>
     <form class="input-box">
-      <input type="text" v-model="username" :placeholder="bar_text=='isTel'?'请输入手机号码':'请输入邮箱账号'" value="" />
+      <input type="text" v-model="username" :placeholder="bartext=='isTel'?'请输入手机号码':'请输入邮箱账号'" value="" />
       <input type="password" v-model="password" placeholder="请输入密码" value="" autocomplete="off" />
     </form>
-    <div class="login" @click="Login">立即登陆</div>
+    <div class="login"  @click.stop="Login">立即登陆</div>
   </div>
 </template>
 
@@ -15,13 +15,13 @@
   export default {
     data() {
       return {
-        bar_text: this.$route.query.goto,
+        bartext: this.$route.query.goto,
         username: '',
         password: '',
       }
     },
     created(){
-      // this.getCookie("MUSIC_U")
+     
     },
     methods: {
       Login() {
@@ -33,7 +33,9 @@
           return
         }
         $http.login(`phone=${this.username}&password=${this.password}`).then(res => {
-
+          localStorage.setItem("accoutid",res.data.account.id);
+          this.$router.push("/pages/home") //
+        
         })
       }
     },

@@ -17,6 +17,11 @@ export default new Router({
       path: '/pages/login',
       name: 'login',
       component:r => require.ensure([], () => r(require('@/pages/login')), 'login'),
+    },
+    {
+      path: '/pages/home',
+      name: 'home',
+      component:r => require.ensure([], () => r(require('@/pages/home')), 'home'),
     }
   ]
 })
