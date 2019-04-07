@@ -12,16 +12,17 @@ import './common/css/common'
 import './common/js/rem'
 
 // 第三方插件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
-
-// Vue.prototype.$http = $http
+Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 })
