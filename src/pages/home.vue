@@ -5,7 +5,7 @@
 <script>
   
   import $http from "@/api/http.js";
-  import bannerPart from "@/components/banner.vue";
+  import bannerPart from "../components/banner.vue";
   export default {
     data(){
         return{
