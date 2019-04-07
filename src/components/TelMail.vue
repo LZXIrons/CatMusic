@@ -34,9 +34,12 @@
           return
         }
         $http.login(`phone=${this.username}&password=${this.password}`).then(res => {
-          localStorage.setItem("accoutid",res.data.account.id);
-          this.$router.push("/pages/home") //
-        
+          if(res.data.code == "502"){
+            alert(res.data.msg)
+          }else if(res.data.account.id){
+            localStorage.setItem("accoutid",res.data.account.id);
+            this.$router.push("/pages/home") 
+          }
         })
       }
     },
