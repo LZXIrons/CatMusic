@@ -41,6 +41,7 @@ export default {
   height 100%
   position fixed
   width 100%
+  left 0
   font-size 0.38rem
 .logo
   margin-bottom 0.5rem

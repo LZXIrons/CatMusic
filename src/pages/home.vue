@@ -5,14 +5,14 @@
 <script>
   
   import $http from "@/api/http.js";
-  import bannerPart from "../components/banner.vue";
+  import BannerPart from "../components/banner.vue";
   export default {
     data(){
         return{
         }
     },
     components:{
-      bannerPart
+      BannerPart
     },
     mounted() {
     },

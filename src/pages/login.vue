@@ -1,17 +1,17 @@
 <template>
 
-      <loginCompontent></loginCompontent>
+      <login-part></login-part>
 
 </template>
 
 <script>
-import loginCompontent from '../components/TelMail';
+import LoginPart from '../components/TelMail.vue';
 export default {
   data() {
     return {};
   },
   components: {
-      loginCompontent,
+      LoginPart,
   }
 };
 </script>
