@@ -1,5 +1,4 @@
 <template>
-<div>
   <swiper v-if="bannerlist.length" :options="swiperOption" ref="mySwiper">
     <!-- slides -->
     <swiper-slide v-for="item in bannerlist" :key="item.id"> 
@@ -14,12 +13,7 @@
     <!-- <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div> -->
   </swiper>
-  <div class="top-head">
-    <div class="icon icon-tubiaozhizuomoban"></div>
-    <div>“CatMusic,欢迎你”</div>
-    <div class="icon icon-sousuo"></div>
-  </div>
-</div>
+  
 </template>
 
 <script>
@@ -64,7 +58,7 @@
 
 <style lang="stylus" scoped>
 
-.top-box,.slide-box
+.slide-box
   position relative
   height: 3.2rem;
   img 
@@ -80,23 +74,10 @@
     top: 0;
     filter: blur(.7rem);
     z-index: -1;
-.top-head
-    position: fixed;
-    width: 100%;
-    height:.55rem;
-    line-height:.55rem;
-    text-align: center;
-    color: #fff;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 .15rem;
-    box-sizing: border-box;
-.icon-tubiaozhizuomoban,.icon-sousuo
-    color #fff
-    font-size: .32rem
-.swiper-pagination-bullet-active
-    background #fff
+
+</style>
+<style>
+.swiper-pagination-bullet-active{
+    background :#fff
+}
 </style>
