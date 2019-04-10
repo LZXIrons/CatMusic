@@ -22,6 +22,7 @@
   import $http from "@/api/http.js";
   import BannerPart from "../components/banner.vue";
   import TopheadPart from "../components/Tophead.vue";
+import { setTimeout } from 'timers';
   export default {
     data(){
         return{
@@ -43,6 +44,8 @@
           let _eloffsetTop = this.$refs.navtop.offsetTop;
           let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity
           now_scrolltop = _scrolltop;
+          console.log( now_scrolltop +"now")
+          console.log(last_scrolltop+"laststart")
           if(now_scrolltop > last_scrolltop){ // 向下滚动
             if(bgcolor >= 0 && bgcolor < 1){
               bgcolor +=.1
@@ -50,7 +53,8 @@
           }else{  // 向上滚动
              bgcolor -=.1
           }
-          last_scrolltop = now_scrolltop;
+          setTimeout(function(){last_scrolltop = now_scrolltop;console.log(last_scrolltop+"last");},0)
+          // last_scrolltop = now_scrolltop;console.log(last_scrolltop+"last")
           if(_scrolltop >= _eloffsetTop){
             let navtemp = this.$refs.navtop.innerHTML
             this.navshow = false;
