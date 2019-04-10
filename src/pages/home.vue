@@ -28,8 +28,8 @@
           navlist:["音乐","电台","节目1","节目2","节目3","节目4"], //栏目
           navshow:true,
           navtemp:'', //栏目模板
-          now_scrolltop:0,
-          last_scrolltop:0,
+          // nowscrolltop:0,
+          // lastscrolltop:0,
         }
     },
     components:{
@@ -43,32 +43,35 @@
       Scrollhead(){
           let _scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           let _eloffsetTop = this.$refs.navtop.offsetTop;
-          let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity
-          let  now_scrolltop = this.now_scrolltop;
-          let  last_scrolltop = this.last_scrolltop;
-          now_scrolltop = _scrolltop;
-          console.log( now_scrolltop +"now")
-          console.log(last_scrolltop+"laststart")
-          if(now_scrolltop > last_scrolltop){ // 向下滚动
-          console.log("向下滚动");
-            if(bgcolor >= 0 && bgcolor < 1){
-              bgcolor +=.1
-            }
-          }else{  // 向上滚动
-          console.log("向上滚动");
-             bgcolor -=.1
+          if( _scrolltop >0 && _scrolltop <= _eloffsetTop){
+           let opa = _scrolltop*1.4/_eloffsetTop<0.1?'0':_scrolltop*1.4/_eloffsetTop;
+           this.$refs.headpart.$refs.intophead.style.background = "rgba(255, 255, 255, "+ opa +")"
           }
-          setTimeout(function(){last_scrolltop = now_scrolltop;console.log(last_scrolltop+"last");},0)
-          // last_scrolltop = now_scrolltop;console.log(last_scrolltop+"last")
+          // // let _bgcolor = 0;
+          // let  _nowscrolltop = this.nowscrolltop =_scrolltop;
+          // let  _lastscrolltop = this.lastscrolltop;
+          // _nowscrolltop = _scrolltop;
+          // if(_nowscrolltop > _lastscrolltop){ // 向下滚动
+          // console.log("向下滚动");
+          //     _bgcolor +=.1;if( _bgcolor > 1 ) return
+          //     this.$refs.headpart.$refs.intophead.style.opacity = String( _bgcolor )
+          // }else{  // 向上滚动
+          // console.log("向上滚动");
+          //    _bgcolor -=.1;if( _bgcolor < 0 ) return
+          //    this.$refs.headpart.$refs.intophead.style.opacity = String( _bgcolor )
+          // }
+          // this.lastscrolltop = _nowscrolltop;
           if(_scrolltop >= _eloffsetTop){
             let navtemp = this.$refs.navtop.innerHTML
             this.navshow = false;
+            this.$refs.headpart.$refs.intophead.style.color = "#666"
             this.$nextTick(function(){
               this.$refs.tophead.innerHTML = navtemp;
             })
             
           }else{
              this.navshow = true;
+             this.$refs.headpart.$refs.intophead.style.color = "#fff"
           }
         }
       },
@@ -78,5 +81,5 @@
 
 <style lang="stylus" scoped>
   nav a
-    color #333
+    color #666
 </style>

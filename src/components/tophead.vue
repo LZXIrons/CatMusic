@@ -1,6 +1,6 @@
 <template>
     <div class="top-box">
-        <div class="top-head">
+        <div class="top-head" ref="intophead">
             <slot name="left">
                 <div class="icon icon-tubiaozhizuomoban"></div>
             </slot>
@@ -11,7 +11,7 @@
                 <div class="icon icon-sousuo"></div>
             </slot>
         </div>
-        <div class="bg-color" ref="intophead"></div>
+        <!-- <div class="bg-color" ref="intophead"></div> -->
     </div>
 </template>
 
@@ -35,6 +35,7 @@
     line-height:.55rem;
     text-align: center;
     color: #fff;
+    background  rgba(255,2555,255,0);
     display: flex;
     justify-content: space-between;
     padding: 0 .15rem;
@@ -48,8 +49,9 @@
     width 100%
     height 100%
     background #ffffff
-    opacity 0        
+    opacity  0
+    transition all  .5s    
 .icon-tubiaozhizuomoban,.icon-sousuo
-    color #fff
+    color inherit
     font-size: .32rem
 </style>
