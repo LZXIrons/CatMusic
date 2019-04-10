@@ -28,6 +28,8 @@
           navlist:["音乐","电台","节目1","节目2","节目3","节目4"], //栏目
           navshow:true,
           navtemp:'', //栏目模板
+          now_scrolltop:0,
+          last_scrolltop:0,
         }
     },
     components:{
@@ -38,16 +40,20 @@
       window.addEventListener('scroll',this.Scrollhead)
     },
     methods:{
-      Scrollhead(window,now_scrolltop=0,last_scrolltop=0){
+      Scrollhead(){
           let _scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           let _eloffsetTop = this.$refs.navtop.offsetTop;
-          let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity
+          let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity;
+          let  now_scrolltop = this.now_scrolltop;
+          let  last_scrolltop = this.last_scrolltop;
           now_scrolltop = _scrolltop;
           if(now_scrolltop > last_scrolltop){ // 向下滚动
+          console.log("向下滚动");
             if(bgcolor >= 0 && bgcolor < 1){
               bgcolor +=.1
             }
           }else{  // 向上滚动
+          console.log("向上滚动");
              bgcolor -=.1
           }
           last_scrolltop = now_scrolltop;
