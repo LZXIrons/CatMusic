@@ -22,15 +22,12 @@
   import $http from "@/api/http.js";
   import BannerPart from "../components/banner.vue";
   import TopheadPart from "../components/Tophead.vue";
-import { setTimeout } from 'timers';
   export default {
     data(){
         return{
           navlist:["音乐","电台","节目1","节目2","节目3","节目4"], //栏目
           navshow:true,
           navtemp:'', //栏目模板
-          now_scrolltop:0,
-          last_scrolltop:0,
         }
     },
     components:{
@@ -41,22 +38,18 @@ import { setTimeout } from 'timers';
       window.addEventListener('scroll',this.Scrollhead)
     },
     methods:{
-      Scrollhead(){
+      Scrollhead(window,now_scrolltop=0,last_scrolltop=0){
           let _scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           let _eloffsetTop = this.$refs.navtop.offsetTop;
-          let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity;
-          let  now_scrolltop = this.now_scrolltop;
-          let  last_scrolltop = this.last_scrolltop;
+          let bgcolor = this.$refs.headpart.$refs.intophead.style.opacity
           now_scrolltop = _scrolltop;
           console.log( now_scrolltop +"now")
           console.log(last_scrolltop+"laststart")
           if(now_scrolltop > last_scrolltop){ // 向下滚动
-          console.log("向下滚动");
             if(bgcolor >= 0 && bgcolor < 1){
               bgcolor +=.1
             }
           }else{  // 向上滚动
-          console.log("向上滚动");
              bgcolor -=.1
           }
           setTimeout(function(){last_scrolltop = now_scrolltop;console.log(last_scrolltop+"last");},0)
