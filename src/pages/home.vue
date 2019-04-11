@@ -6,8 +6,8 @@
            <div ref="tophead"></div>
           </template>
        </tophead-part>
-       <div ref="navtop" :style="{ visibility:navshow?'visible' : 'hidden'}">
-          <nav>
+       <div ref="navtop" :style="{ visibility:navshow?'visible' : 'hidden'}" class="nav-top-box">
+          <nav class="nav-top">
             <router-link tag="a" to="#" v-for="item in navlist" :key="item">
               {{item}}
             </router-link>
@@ -43,8 +43,13 @@
       Scrollhead(){
           let _scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           let _eloffsetTop = this.$refs.navtop.offsetTop;
+        //   top滚动背景渐变效果
           if( _scrolltop >0 && _scrolltop <= _eloffsetTop){
            let opa = _scrolltop*1.4/_eloffsetTop<0.1?'0':_scrolltop*1.4/_eloffsetTop;
+           let wid = _scrolltop*.8/_eloffsetTop >= 0.8?'.8':_scrolltop*.8/_eloffsetTop;
+           document.querySelectorAll(".nav-top > a").forEach(element => {
+               element.style.width = wid + "rem";
+           });
            this.$refs.headpart.$refs.intophead.style.background = "rgba(255, 255, 255, "+ opa +")"
           }
           // // let _bgcolor = 0;
@@ -61,7 +66,7 @@
           //    this.$refs.headpart.$refs.intophead.style.opacity = String( _bgcolor )
           // }
           // this.lastscrolltop = _nowscrolltop;
-          if(_scrolltop >= _eloffsetTop){
+          if(_scrolltop >= _eloffsetTop - 50){
             let navtemp = this.$refs.navtop.innerHTML
             this.navshow = false;
             this.$refs.headpart.$refs.intophead.style.color = "#666"
@@ -80,6 +85,13 @@
 </script>
 
 <style lang="stylus" scoped>
-  nav a
+  .nav-top-box
+    transition: width .8s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .nav-top a
+    display: inline-block
     color #666
+    width 1rem
+    transition: width .8s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 </style>
