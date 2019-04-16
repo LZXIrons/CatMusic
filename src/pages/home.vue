@@ -45,7 +45,7 @@
           let _eloffsetTop = this.$refs.navtop.offsetTop;
         //   top滚动背景渐变效果
           if( _scrolltop >0 && _scrolltop <= _eloffsetTop){
-           let opa = _scrolltop*1.4/_eloffsetTop<0.1?'0':_scrolltop*1.4/_eloffsetTop;
+           let opa = _scrolltop*1.4/_eloffsetTop < 0.1?'0':_scrolltop*1.4/_eloffsetTop;
            let wid = _scrolltop*.8/_eloffsetTop >= 0.8?'.8':_scrolltop*.8/_eloffsetTop;
            document.querySelectorAll(".nav-top > a").forEach(element => {
                element.style.width = wid + "rem";
@@ -90,8 +90,8 @@
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   .nav-top a
     display: inline-block
-    color #666
-    width 1rem
+    color: #666
+    width: 1rem
     transition: width .8s;
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 </style>
