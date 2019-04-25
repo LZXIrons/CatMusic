@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 // 配置请求信息
 let api = axios.create({
     baseURL: 'http://localhost:3000',

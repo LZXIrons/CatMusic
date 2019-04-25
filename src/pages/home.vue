@@ -28,8 +28,6 @@
           navlist:["音乐","电台","节目1","节目2","节目3","节目4"], //栏目
           navshow:true,
           navtemp:'', //栏目模板
-          // nowscrolltop:0,
-          // lastscrolltop:0,
         }
     },
     components:{
@@ -45,28 +43,16 @@
           let _eloffsetTop = this.$refs.navtop.offsetTop;
         //   top滚动背景渐变效果
           if( _scrolltop >0 && _scrolltop <= _eloffsetTop){
-           let opa = _scrolltop*1.4/_eloffsetTop<0.1?'0':_scrolltop*1.4/_eloffsetTop;
-           let wid = _scrolltop*.8/_eloffsetTop >= 0.8?'.8':_scrolltop*.8/_eloffsetTop;
+           let opa = _scrolltop*1.2/_eloffsetTop < .1?'0':_scrolltop*1.2/_eloffsetTop;
+           let wid = _scrolltop*.9/_eloffsetTop >= .8?'.8':_scrolltop/_eloffsetTop <= .1? '1': _eloffsetTop*.15  / _scrolltop  <= .8? '.8' :_eloffsetTop*.15 / _scrolltop ;
            document.querySelectorAll(".nav-top > a").forEach(element => {
-               element.style.width = wid + "rem";
+              element.style.width = wid + "rem";
            });
+          
            this.$refs.headpart.$refs.intophead.style.background = "rgba(255, 255, 255, "+ opa +")"
           }
-          // // let _bgcolor = 0;
-          // let  _nowscrolltop = this.nowscrolltop =_scrolltop;
-          // let  _lastscrolltop = this.lastscrolltop;
-          // _nowscrolltop = _scrolltop;
-          // if(_nowscrolltop > _lastscrolltop){ // 向下滚动
-          // console.log("向下滚动");
-          //     _bgcolor +=.1;if( _bgcolor > 1 ) return
-          //     this.$refs.headpart.$refs.intophead.style.opacity = String( _bgcolor )
-          // }else{  // 向上滚动
-          // console.log("向上滚动");
-          //    _bgcolor -=.1;if( _bgcolor < 0 ) return
-          //    this.$refs.headpart.$refs.intophead.style.opacity = String( _bgcolor )
-          // }
-          // this.lastscrolltop = _nowscrolltop;
-          if(_scrolltop >= _eloffsetTop - 50){
+        //   栏目固定于top
+          if(_scrolltop >= _eloffsetTop - 5){
             let navtemp = this.$refs.navtop.innerHTML
             this.navshow = false;
             this.$refs.headpart.$refs.intophead.style.color = "#666"
