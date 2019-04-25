@@ -76,8 +76,8 @@
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   .nav-top a
     display: inline-block
-    color #666
-    width 1rem
+    color: #666
+    width: 1rem
     transition: width .8s;
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 </style>
