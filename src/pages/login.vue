@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginPart from '../components/TelMail.vue';
+import LoginPart from '@/components/TelMail.vue';
 export default {
   data() {
     return {};

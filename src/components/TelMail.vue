@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import $http from "@/api/http.js";
+  import $http from "@/api/api.js";
   import $cookie from "@/api/cookie.js";
   export default {
     data() {
@@ -27,13 +27,11 @@
     methods: {
       Login() {
         if (!this.username) {
-          alert("账号不能为空")
-          return
+          alert("账号不能为空");
         } else if (!this.password) {
-          alert("密码不能为空")
-          return
+          alert("密码不能为空");
         }
-        $http.login(`phone=${this.username}&password=${this.password}`).then(res => {
+        $http.login(`${this.username}`,`${this.password}`).then(res => {
           if(res.data.code == "502"){
             alert(res.data.msg)
           }else if(res.data.account.id){

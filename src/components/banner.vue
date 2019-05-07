@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import $http from "@/api/http.js";
+  import $http from "@/api/api.js";
   export default {
     data(){
         return{

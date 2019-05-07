@@ -1,15 +1,15 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router'
+import App from '@/App'
+import router from '@/router/index'
 
 // css
-import './common/css/reset'
-import './common/css/common'
+import '@/common/css/reset'
+import '@/common/css/common'
 
 //js
-import './common/js/rem'
+import '@/common/js/rem'
 
 // 第三方插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'

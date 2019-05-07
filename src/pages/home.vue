@@ -19,9 +19,9 @@
 
 <script>
   
-  import $http from "@/api/http.js";
-  import BannerPart from "../components/banner.vue";
-  import TopheadPart from "../components/Tophead.vue";
+  import $http from "@/api/api.js";
+  import BannerPart from "@/components/banner.vue";
+  import TopheadPart from "@/components/Tophead.vue";
   export default {
     data(){
         return{
